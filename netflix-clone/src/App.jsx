@@ -1,15 +1,12 @@
-import { useState } from "react";
-
+import React from "react";
 import "./App.css";
-import "./pages/home";
-function App() {
-  const [count, setCount] = useState(0);
+import Home from "./pages/home";
 
+function App() {
   return (
-    <>
-      hello abeebeb
-      <home />
-    </>
+    <div className="App">
+      <Home />
+    </div>
   );
 }
 
