@@ -1,33 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "../../utils/axios";
 import request from "../../utils/request";
+import "./banner.css";
 
 const Banner = () => {
-  const [movie, setmovie] = useState({});
+  const [movie, setMovie] = useState({});
+
   useEffect(() => {
     (async () => {
       try {
         const request = await axios.get(request.fetchNetflixOrginals);
-        setmovie(
-          request.data.results[
-            Math.floor(Math.random()) * request.data.results.length
+        // console.log(request);
+        setMovie(
+          response.data.results[
+            Math.floor(Math.random() * response.data.results.length)
           ]
         );
       } catch (error) {
-        console.log("error,error");
+        // console.log("Error:", error);
       }
     })();
   }, []);
+
+  function truncate(str, n) {
+    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  }
+
   return (
-    <div>
-      ClassNme="Banner" style{" "}
-      {{
+    <header
+      className="banner"
+      style={{
         backgroundSize: "cover",
-        backgroundImage: `url('https://image.tmdb.org/t/p/orginal${movie?.backdrop_path}')`,
-        backgroudPostion: "center",
-        backroundRepeat: "no-repeat",
+        backgroundImage: `url('https://image.tmdb.org/t/p/original${movie?.backdrop_path}')`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
-    </div>
+    >
+      <div className="banner_contents">
+        <h1 className="banner_title">
+          {movie?.title || movie?.name || movie?.original_name}
+        </h1>
+        <div className="banner_buttons">
+          <button className="banner_button play">Play</button>
+          <button className="banner_button">My List</button>
+        </div>
+        <h1 className="banner_description">{truncate(movie?.overview, 150)}</h1>
+      </div>
+      <div className="banner_fadeBottom" />
+    </header>
   );
 };
 

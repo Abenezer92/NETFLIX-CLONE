@@ -1,4 +1,4 @@
-.footer_outer_continainer {
+.footer_outer_container {
   background-color: #111;
   color: grey;
   display: flex;
@@ -8,7 +8,7 @@
   width: 60%;
   /* background-color: red; */
 }
-.footer_icon {
+.footer_icons {
   /* background-color: blue; */
   width: 12%;
   display: flex;
@@ -31,7 +31,7 @@
 .footer_data ul li {
   cursor: pointer;
 }
-.Service_code {
+.service_code {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,12 +43,4 @@
 .copy-write {
   font-size: 12px;
   margin-bottom: 10px;
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  background-color: #111;
 }
