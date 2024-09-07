@@ -44,3 +44,7 @@
   font-size: 12px;
   margin-bottom: 10px;
 }
+.banner_buttons {
+  display: flex;
+  gap: 1rem; /* Add space between buttons new add */
+}

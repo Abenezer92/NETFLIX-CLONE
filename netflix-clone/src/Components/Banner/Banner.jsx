@@ -9,15 +9,15 @@ const Banner = () => {
   useEffect(() => {
     (async () => {
       try {
-        const request = await axios.get(request.fetchNetflixOrginals);
-        // console.log(request);
+        const response = await axios.get(request.fetchNetflixOrginals);
+        console.log(response);
         setMovie(
           response.data.results[
             Math.floor(Math.random() * response.data.results.length)
           ]
         );
       } catch (error) {
-        // console.log("Error:", error);
+        console.log("Error:", error);
       }
     })();
   }, []);
